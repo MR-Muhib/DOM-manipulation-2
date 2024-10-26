@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Event Listener List</title>
+  <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body>
+
+  <div>
+    <h1 style="text-align:center">All Event Listener List</h1>
+    <ul>
+      <li id="country-list">
+        <!-- dynamically created list -->
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="countries2.js"></script>
+  <script>
+    const countriesList = document.querySelector("#country-list");
+    // countries
+    countries.forEach(element => {
+      const tag = document.createElement("p");
+      tag.textContent = element.name;
+      tag.addEventListener("click", () => {
+
+        const child = document.createElement("p");
+        child.innerHTML = `Countries Name:${element.name},<br>Countries Code:${element.code} ${element.utc}, ${element.mobileCode}`;
+        tag.appendChild(child);
+
+
+      });
+      countriesList.appendChild(tag);
+
+
+    });
+
+  </script>
+</body>
+
+</html>
